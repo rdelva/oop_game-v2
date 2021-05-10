@@ -1,0 +1,1 @@
+This Project is called Phrase Hunter, which was created with Javascript and OOP.
