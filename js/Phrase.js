@@ -4,6 +4,6 @@
 
 class Phrase {
     constructor(phrase){
-        this.phrase = phrase.toLowerCase();        
+      // this.phrase = this.phrase.toLowerCase();       
     }
 }
