@@ -8,7 +8,7 @@ class Game {
         this.activePhrase = null;
     }
 
-    /**
+/**
 * Creates phrases for use in game
 * @return {array} An array of phrases that could be used in the game
 */
@@ -22,6 +22,15 @@ class Game {
         ]
 
         return arrayOfPhrases;
+    }
+
+/**
+* Selects random phrase from phrases property
+* @return {Object} Phrase object chosen to be used
+*/
+    getRandomPhrase() {
+        let index = Math.floor(Math.random() * this.phrases.length - 1) + 1;
+        console.log(index);
     }
 
   
