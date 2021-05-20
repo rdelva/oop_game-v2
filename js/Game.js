@@ -14,9 +14,9 @@ class Game {
 */
     createPhrases(){
         const arrayOfPhrases = [
-            'Jack of All Trades, Master of None',
-            'Don’t Count Your Chickens Before They Hatch',
-            'I\'m gonna make him an offer he can\'t refuse.',
+            'There is no trying',
+            'You have to see the matrix for yourself',
+            'Life is like a box of chocolates',
             'Bond. James Bond',
             'Show me the money!'
         ]
@@ -28,9 +28,10 @@ class Game {
 * Selects random phrase from phrases property
 * @return {Object} Phrase object chosen to be used
 */
-    getRandomPhrase() {
+   getRandomPhrase() {
         let index = Math.floor(Math.random() * this.phrases.length - 1) + 1;
-        console.log(index);
+        return this.phrases[index];
+    
     }
 
   
