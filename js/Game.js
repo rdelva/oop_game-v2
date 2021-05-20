@@ -4,7 +4,7 @@
 class Game {
     constructor(){
         this.missed = 0;
-        this.phrases = phrases;
+        this.phrases = createPhrases();
         this.activePhrase = null;
     }
 
@@ -13,7 +13,7 @@ class Game {
 * @return {array} An array of phrases that could be used in the game
 */
 
-    createPhrase(){
+    createPhrases(){
         const phrases = [
             'Jack of All Trades, Master of None',
             'Don’t Count Your Chickens Before They Hatch',
