@@ -12,28 +12,30 @@ class Game {
 * Creates phrases for use in game
 * @return {array} An array of phrases that could be used in the game
 */
-    createPhrases(){
-        const arrayOfPhrases = [
-            'There is no trying',
-            'You have to see the matrix for yourself',
-            'Life is like a box of chocolates',
-            'Bond. James Bond',
-            'Show me the money!'
+   createPhrases(){
+
+        const phrases = [
+            new Phrase ('See the matrix for yourself'),
+            new Phrase ('Life is like a box of chocolates'),
+            new Phrase ('Bond. James Bond'),
+            new Phrase ('Show me the money!'),
+            new Phrase ('This is SPARTA!'),         
+          
         ]
 
-        return arrayOfPhrases;
+        return phrases;
     }
-
+   
 /**
 * Selects random phrase from phrases property
 * @return {Object} Phrase object chosen to be used
 */
-   getRandomPhrase() {
+      /* getRandomPhrase() {
         let index = Math.floor(Math.random() * this.phrases.length - 1) + 1;
         return this.phrases[index];
     
     }
 
-  
+  */
 
 } 
