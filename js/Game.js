@@ -30,12 +30,10 @@ class Game {
 * Selects random phrase from phrases property
 * @return {Object} Phrase object chosen to be used
 */
-      /* getRandomPhrase() {
+       getRandomPhrase() {
         let index = Math.floor(Math.random() * this.phrases.length - 1) + 1;
         return this.phrases[index];
     
     }
 
-  */
-
-} 
+}
