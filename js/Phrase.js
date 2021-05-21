@@ -14,11 +14,10 @@ class Phrase {
 addPhraseToDisplay() {
     const phraseSection = document.getElementById("phrase");
     const ul = phraseSection.querySelector("ul");
-    const li = document.createElement('li');
 
     console.log(this.phrase);
     for(let i = 0; i < this.phrase.length; i++) {
-        ul.innerHTML += `<li>${this.phrase[i]}</li>`;
+        ul.innerHTML += `<li class="hide letter">${this.phrase[i]}</li>`;
     }
 
 }
