@@ -24,5 +24,13 @@ class Game {
         return phraseSet;
     }
 
+    /**
+    * Selects random phrase from phrases property
+    * @return {Object} Phrase object chosen to be used
+    */
+    getRandomPhrase() {
+        
+    }
+
 }// end Game Class
 
