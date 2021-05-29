@@ -17,7 +17,7 @@ class Game {
         const phrases = [
             new Phrase ('See the matrix for yourself'),
             new Phrase ('Life is like a box of chocolates'),
-            new Phrase ('Bond. James Bond'),
+            new Phrase ('May the Force be with you'),
             new Phrase ('Show me the money!'),
             new Phrase ('This is SPARTA!'),         
           
@@ -44,9 +44,8 @@ class Game {
 
         overlay.addEventListener('click', ()=> {
             overlay.style.display = 'none';
-            this.getRandomPhrase();
-            phrase.addPhraseToDisplay();
-            this.activePhrase = phrase.addPhraseToDisplay();
+            this.activePhrase =  this.getRandomPhrase().addPhraseToDisplay();           
+            console.log(this.activePhrase);
         });
     }
 
