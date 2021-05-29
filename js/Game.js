@@ -29,7 +29,8 @@ class Game {
     * @return {Object} Phrase object chosen to be used
     */
     getRandomPhrase() {
-        
+        const index = Math.floor(Math.random() * this.phrases.length  - 1) + 1;
+        return this.phrases[index];
     }
 
 }// end Game Class
