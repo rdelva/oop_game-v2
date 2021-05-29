@@ -24,5 +24,5 @@ class Game {
         return phraseSet;
     }
 
-}
+}// end Game Class
 
