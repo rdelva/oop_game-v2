@@ -38,14 +38,21 @@ class Game {
     */
     startGame() {
         const overlay = document.getElementById("overlay");
-        const startButton = document.getElementById("btn__reset");
-
-        startButton.addEventListener('click', (e) => {
-            overlay.style.display = 'none'; 
-        });
-
+        overlay.style.display = 'none';      
+        
         this.getRandomPhrase().addPhraseToDisplay();
         this.activePhrase = this.getRandomPhrase(); 
+    }
+
+
+    handleInteraction(){
+        const keyboard = document.getElementById("qwerty");
+
+        keyboard.addEventListener('click', (e) => {
+            if(e.target.tagName == 'BUTTON'){
+                console.log(e.target);
+            }
+        });
     }
 
 }// end Game Class

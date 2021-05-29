@@ -8,5 +8,6 @@ const startButton = document.getElementById("btn__reset");
 
 startButton.addEventListener('click', (e) => {
     const game = new Game();
-    game.startGame(); 
+    game.startGame();
+    game.handleInteraction(); 
 });
