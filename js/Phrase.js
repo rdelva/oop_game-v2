@@ -15,9 +15,14 @@ addPhraseToDisplay() {
     const phraseSection = document.getElementById("phrase");
     const ul = phraseSection.querySelector("ul");
 
-    console.log(this.phrase);
+    console.log(this.phrase)
     for(let i = 0; i < this.phrase.length; i++) {
-        ul.innerHTML += `<li class="hide letter">${this.phrase[i]}</li>`;
+             if(this.phrase[i] !== ' '){
+            ul.innerHTML += `<li class="hide letter">${this.phrase[i]}</li>`;
+        } else {
+            ul.innerHTML += `<li class="space">${this.phrase[i]}</li>`
+        }
+
     }
 
 }
