@@ -3,5 +3,5 @@
  * Phrase.js */
 
 class Phrase {
-
+    
 }
