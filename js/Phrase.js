@@ -24,5 +24,30 @@ class Phrase {
         }
         return this.phrase;
     }
+    /**
+    * Checks if passed letter is in phrase
+    * @param (string) letter - Letter to check
+    */
+    checkLetter(letter) {
+        console.log('Phrase chosen letter ' + letter);
+        for(let i = 0; i < this.phrase.length; i++){
+            if(this.phrase[i] == letter ){
+                console.log(true);
+                //showMatchedLetter(letter);
+            } else {
+                console.log(false);
+                //game.removeLife();
+            }
+        }//end of for loop
+    }
+
+
+    /**
+    * Displays passed letter on screen after a match is found
+    * @param (string) letter - Letter to display
+    */
+    showMatchedLetter(letter) {
+
+    }
 
 }// end of Phrase class

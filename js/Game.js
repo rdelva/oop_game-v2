@@ -19,7 +19,7 @@ class Game {
             new Phrase('Nobody puts Baby in a corner'),
             new Phrase('My precious'),
             new Phrase('Rosebud'),
-            new Phrase('Inconceivable'),
+            new Phrase('Just keep swimming'),
         ]
         return phraseSet;
     }
@@ -33,6 +33,7 @@ class Game {
         return this.phrases[index];
     }
 
+
     /**
     * Begins game by selecting a random phrase and displaying it to user
     */
@@ -45,15 +46,40 @@ class Game {
     }
 
 
+
     handleInteraction(){
         const keyboard = document.getElementById("qwerty");
+       
 
         keyboard.addEventListener('click', (e) => {
             if(e.target.tagName == 'BUTTON'){
-                console.log(e.target);
+                const chosenLetter = e.target.innerHTML;
+                e.target.classList.add("chosen");             
             }
-        });
-    }
+        });     
+        
+        
+    }// end of handleInteraction()
+
+    /**
+    * Checks for winning move
+    * @return {boolean} True if game has been won, false if game wasn't
+    won
+    */
+    checkForWin() {}
+
+    /**
+    * Increases the value of the missed property
+    * Removes a life from the scoreboard
+    * Checks if player has remaining lives and ends game if player is out
+    */
+    removeLife() {}
+
+    /**
+    * Displays game over message
+    * @param {boolean} gameWon - Whether or not the user won the game
+    */
+    gameOver(gameWon) {};
 
 }// end Game Class
 
