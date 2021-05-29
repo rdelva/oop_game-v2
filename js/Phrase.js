@@ -22,6 +22,7 @@ class Phrase {
                 ul.innerHTML += `<li class="space">${this.phrase[i]}</li>`;
             }
         }
+        return this.phrase;
     }
 
 }// end of Phrase class
