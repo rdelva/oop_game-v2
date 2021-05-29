@@ -41,12 +41,11 @@ class Game {
         const startButton = document.getElementById("btn__reset");
 
         startButton.addEventListener('click', (e) => {
-            overlay.style.display = 'none';            
-            this.activePhrase = this.getRandomPhrase().addPhraseToDisplay();
-            console.log(this.activePhrase);
+            overlay.style.display = 'none'; 
         });
 
-        return this.activePhrase;
+        this.getRandomPhrase().addPhraseToDisplay();
+        this.activePhrase = this.getRandomPhrase(); 
     }
 
 }// end Game Class
