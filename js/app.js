@@ -10,20 +10,8 @@ window.addEventListener('click', (e) => {
     if(e.target.id === startButton.id){      
         const game = new Game();
         game.startGame();
-       
+        game.handleInteraction();
         //game.activePhrase.checkLetter('a');
-
-        // Selects the entire screen keyboard
-        const qwerty  = document.getElementById("qwerty");
-        qwerty.addEventListener('click', (e) => {
-            //chosenLetter = e.target; 
-
-            if(e.target.tagName === 'BUTTON'){
-                e.target.classList.add('chosen')
-                game.handleInteraction(e.target.innerHTML);
-            }
-        }); // eventListner for keyboard
-
     } 
 
 
