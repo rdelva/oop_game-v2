@@ -3,12 +3,12 @@
  * app.js */
 
 
-const game = new Game();
 
 // if you select the Start Button the  game will begin
 const startButton = document.getElementById("btn__reset");
 window.addEventListener('click', (e) => {
     if(e.target.id === startButton.id){      
+        const game = new Game();
         game.startGame();
         game.handleInteraction();
         //game.activePhrase.checkLetter('a');
