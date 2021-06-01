@@ -24,8 +24,6 @@ window.addEventListener('click', (e) => {
             }
         }); // eventListner for keyboard
 
-        game.handleInteraction();
-
     } 
 
 
