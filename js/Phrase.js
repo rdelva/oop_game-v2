@@ -29,15 +29,13 @@ class Phrase {
     * @param (string) letter - Letter to check
     */
     checkLetter(letter) {
-       // console.log('Phrase chosen letter ' + letter);
-       console.log(this.phrase);
         for(let i = 0; i < this.phrase.length; i++){
-            if(this.phrase[i] == letter ){
-                console.log(true);
-                //showMatchedLetter(letter);
-            } else {
-                console.log(false);
-                //game.removeLife();
+            if(this.phrase[i] === letter ){                      
+                this.showMatchedLetter(letter); 
+                             
+            } else {          
+                //game.removeLife();                
+                  
             }
         }//end of for loop
     }
@@ -48,7 +46,16 @@ class Phrase {
     * @param (string) letter - Letter to display
     */
     showMatchedLetter(letter) {
+        const guessPhrase = document.querySelectorAll("#phrase ul li");
 
+            for(let i = 0; i < guessPhrase.length; i++){
+                console.log(letter);
+                console.log(guessPhrase[i]);
+                if(guessPhrase[i].innerHTML === letter){
+                    guessPhrase[i].classList.remove("hide");
+                    guessPhrase[i].classList.add("show");                    
+                }   
+            }
     }
 
 }// end of Phrase class
