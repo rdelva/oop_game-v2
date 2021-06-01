@@ -48,15 +48,7 @@ class Game {
 
 
     handleInteraction(){
-        const keyboard = document.getElementById("qwerty");
-       
-
-        keyboard.addEventListener('click', (e) => {
-            if(e.target.tagName == 'BUTTON'){
-                const chosenLetter = e.target.innerHTML;
-                e.target.classList.add("chosen");             
-            }
-        });     
+          
         
         
     }// end of handleInteraction()
