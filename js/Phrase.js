@@ -29,7 +29,8 @@ class Phrase {
     * @param (string) letter - Letter to check
     */
     checkLetter(letter) {
-        console.log('Phrase chosen letter ' + letter);
+       // console.log('Phrase chosen letter ' + letter);
+       console.log(this.phrase);
         for(let i = 0; i < this.phrase.length; i++){
             if(this.phrase[i] == letter ){
                 console.log(true);

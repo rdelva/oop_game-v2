@@ -39,19 +39,34 @@ class Game {
     */
     startGame() {
         const overlay = document.getElementById("overlay");
-        overlay.style.display = 'none';      
+        overlay.style.display = 'none';    
         
-        this.getRandomPhrase().addPhraseToDisplay();
-        this.activePhrase = this.getRandomPhrase(); 
+        // this.getRandomPhrase().addPhraseToDisplay();
+        // this.activePhrase = this.getRandomPhrase(); 
+
+        const selectedPhrase = this.getRandomPhrase();
+        this.activePhrase = selectedPhrase;
+        this.activePhrase.addPhraseToDisplay();
+        console.log(this.activePhrase);
     }
 
 
 
-    handleInteraction(letter){
-          console.log(`Letter chosen ${letter}`);
-        
+    handleInteraction(){
+        const qwerty = document.getElementById("qwerty");
+        qwerty.addEventListener('click', (e) => {           
+
+            if(e.target.tagName === 'BUTTON'){
+                console.log(e.target.innerHTML);   
+                e.target.classList.add('chosen');
+                this.activePhrase.checkLetter(e.target.innerHTML);
+            }
+        }); // eventListner for keyboard
         
     }// end of handleInteraction()
+
+
+
 
     /**
     * Checks for winning move
