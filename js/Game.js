@@ -47,8 +47,8 @@ class Game {
 
 
 
-    handleInteraction(){
-          
+    handleInteraction(letter){
+          console.log(`Letter chosen ${letter}`);
         
         
     }// end of handleInteraction()
