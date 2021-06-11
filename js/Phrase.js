@@ -49,8 +49,8 @@ class Phrase {
         const guessPhrase = document.querySelectorAll("#phrase ul li");
 
             for(let i = 0; i < guessPhrase.length; i++){
-                console.log(letter);
-                console.log(guessPhrase[i]);
+                //console.log(letter);
+                //console.log(guessPhrase[i]);
                 if(guessPhrase[i].innerHTML === letter){
                     guessPhrase[i].classList.remove("hide");
                     guessPhrase[i].classList.add("show");                    
