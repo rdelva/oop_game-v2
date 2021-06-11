@@ -30,13 +30,20 @@ class Phrase {
     */
     checkLetter(letter) {
         for(let i = 0; i < this.phrase.length; i++){
-            if(this.phrase[i] === letter ){                      
-                this.showMatchedLetter(letter); 
-                             
-            } else {          
-                //game.removeLife();                
-                  
+            if(this.phrase[i] !== ""){
+                if(this.phrase[i] === letter ){                      
+                    this.showMatchedLetter(letter);                
+                } else {
+                    if( i === this.phrase.length){
+                        const game = new Game();
+                        game.removeLife();
+                    }
+                }
+
             }
+          
+            
+            
         }//end of for loop
     }
 
