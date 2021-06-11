@@ -80,7 +80,23 @@ class Game {
     * Removes a life from the scoreboard
     * Checks if player has remaining lives and ends game if player is out
     */
-    removeLife() {}
+    removeLife() {
+        
+        const scoreboard = document.querySelector("#scoreboard ol");
+        const tries = scoreboard.querySelectorAll('.tries [alt="Heart Icon"]');
+        console.log(tries);
+        let counter = tries.length;
+        console.log("Guessed Wrong");
+        // if(wrongGuess){
+        //     tries[counter]
+
+
+        // }
+        
+
+
+        
+    }
 
     /**
     * Displays game over message
