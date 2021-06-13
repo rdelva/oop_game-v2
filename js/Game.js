@@ -82,10 +82,10 @@ class Game {
     */
     removeLife() {
         
-        const scoreboard = document.querySelector("#scoreboard ol");
-        const tries = scoreboard.querySelectorAll('.tries [alt="Heart Icon"]');
-        console.log(tries);
-        let counter = tries.length;
+        // const scoreboard = document.querySelector("#scoreboard ol");
+        // const tries = scoreboard.querySelectorAll('.tries [alt="Heart Icon"]');
+        // console.log(tries);
+        // let counter = tries.length;
         console.log("Guessed Wrong");
         // if(wrongGuess){
         //     tries[counter]
