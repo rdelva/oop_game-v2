@@ -82,11 +82,21 @@ class Game {
     */
     removeLife() {
         
-        // const scoreboard = document.querySelector("#scoreboard ol");
-        // const tries = scoreboard.querySelectorAll('.tries [alt="Heart Icon"]');
-        // console.log(tries);
-        // let counter = tries.length;
-        console.log("Guessed Wrong");
+        const scoreboard = document.querySelector("#scoreboard ol");
+        const li = scoreboard.querySelector("li");
+        const img = li.querySelector("img");
+        console.log(img.src);        
+        if(img.alt === 'Heart Icon'){           
+            img.src = 'images/lostHeart.png';
+            img.alt = 'Lost Heart'
+
+        }
+        const hearts = scoreboard.querySelectorAll('.tries [alt="Heart Icon"]');
+       
+      
+
+
+        //console.log("Guessed Wrong");
         // if(wrongGuess){
         //     tries[counter]
 
