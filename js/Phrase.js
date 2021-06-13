@@ -33,8 +33,8 @@ class Phrase {
             if(this.phrase[i] !== ""){
                 if(this.phrase[i] === letter ){                      
                     this.showMatchedLetter(letter);                
-                } else {
-                    if( i === this.phrase.length){
+                } else {                  
+                    if( i == this.phrase.length - 1){                        
                         const game = new Game();
                         game.removeLife();
                     }
