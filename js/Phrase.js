@@ -29,22 +29,22 @@ class Phrase {
     * @param (string) letter - Letter to check
     */
     checkLetter(letter) {
+        let counter = 0; // if counter matches the length it means no letter was found
         for(let i = 0; i < this.phrase.length; i++){
-            if(this.phrase[i] !== ""){
+            if(this.phrase[i] !== ""){ // skips the spaces
                 if(this.phrase[i] === letter ){                      
-                    this.showMatchedLetter(letter);                
-                } else {                  
-                    if( i == this.phrase.length - 1){                        
-                        const game = new Game();
-                        game.removeLife();
-                    }
+                    this.showMatchedLetter(letter);     
+                }  else {
+                    counter++;
                 }
+            }                     
+        }
+        // no letter was found player loses a life
+        if(counter == this.phrase.length){               
+            const game = new Game();
+            game.removeLife();   
+        }
 
-            }
-          
-            
-            
-        }//end of for loop
     }
 
 

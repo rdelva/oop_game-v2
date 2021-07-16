@@ -94,7 +94,7 @@ class Game {
         const hearts = scoreboard.querySelectorAll('.tries [alt="Heart Icon"]');
        
       
-
+        console.log(hearts);
 
         //console.log("Guessed Wrong");
         // if(wrongGuess){
