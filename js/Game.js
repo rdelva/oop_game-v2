@@ -90,12 +90,13 @@ class Game {
         console.log(tries);
         //console.log(img.src); 
         this.missed++       
-        for(let i = 0; i < tries.length - 1; i++){
+        for(let i = 0; i < tries.length; i++){
          
             if(tries[i].alt == 'Heart Icon' ){
                 tries[i].src = 'images/lostHeart.png';
                 tries[i].alt = 'Lost Heart';
-            }      
+                break;
+            }   
 
         }
 
