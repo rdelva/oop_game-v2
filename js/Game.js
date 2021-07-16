@@ -85,16 +85,25 @@ class Game {
         const scoreboard = document.querySelector("#scoreboard ol");
         const li = scoreboard.querySelector("li");
         const img = li.querySelector("img");
-        console.log(img.src);        
-        if(img.alt === 'Heart Icon'){           
-            img.src = 'images/lostHeart.png';
-            img.alt = 'Lost Heart'
+        const tries = scoreboard.querySelectorAll('.tries img')
+        const hearts = scoreboard.querySelectorAll('.tries [alt="Heart Icon"]');  
+        console.log(tries);
+        //console.log(img.src); 
+        this.missed++       
+        for(let i = 0; i < tries.length - 1; i++){
+         
+            if(tries[i].alt == 'Heart Icon' ){
+                tries[i].src = 'images/lostHeart.png';
+                tries[i].alt = 'Lost Heart';
+            }      
 
         }
-        const hearts = scoreboard.querySelectorAll('.tries [alt="Heart Icon"]');
-       
+
+        if(this.missed == tries){
+            console.log("Game Over");
+        }
+
       
-        console.log(hearts);
 
         //console.log("Guessed Wrong");
         // if(wrongGuess){
