@@ -73,7 +73,30 @@ class Game {
     * @return {boolean} True if game has been won, false if game wasn't
     won
     */
-    checkForWin() {}
+  
+    checkForWin() {
+        
+        const letters = document.querySelectorAll('#phrase  .letter');        
+        console.log(letters.length);
+
+        let counter = 0;
+        for(let i = 0; i < letters.length -1 ; i++){
+           
+            if(letters[i] !== "" ){                
+                if(letters[i].classList.contains('show')){
+                    counter++;
+                }
+            } 
+            console.log(counter);
+        }
+       
+        if(counter === letters.length - 1){
+            this.gameOver(true);
+            console.log(`You've won`);
+        }
+       
+
+    }
 
     /**
     * Increases the value of the missed property
@@ -81,40 +104,38 @@ class Game {
     * Checks if player has remaining lives and ends game if player is out
     */
     removeLife() {
-        
+         
         const scoreboard = document.querySelector("#scoreboard ol");
         const li = scoreboard.querySelector("li");
         const img = li.querySelector("img");
         const tries = scoreboard.querySelectorAll('.tries img')
         const hearts = scoreboard.querySelectorAll('.tries [alt="Heart Icon"]');  
-        console.log(tries);
+        //console.log(tries);
         //console.log(img.src); 
-        this.missed++       
+            
         for(let i = 0; i < tries.length; i++){
          
             if(tries[i].alt == 'Heart Icon' ){
                 tries[i].src = 'images/lostHeart.png';
                 tries[i].alt = 'Lost Heart';
+                               
                 break;
-            }   
-
+            } 
         }
 
-        if(this.missed == tries){
-            console.log("Game Over");
+        //this.missed equals the number of lost hearts
+
+        const lostHearts = scoreboard.querySelectorAll('.tries [alt="Lost Heart"]'); 
+        this.missed = lostHearts.length;
+
+        console.log(this.missed);
+
+        if(this.missed === tries.length){
+            console.log('Game Over');
+            this.gameOver(false);
+
         }
-
-      
-
-        //console.log("Guessed Wrong");
-        // if(wrongGuess){
-        //     tries[counter]
-
-
-        // }
-        
-
-
+ 
         
     }
 
@@ -122,7 +143,12 @@ class Game {
     * Displays game over message
     * @param {boolean} gameWon - Whether or not the user won the game
     */
-    gameOver(gameWon) {};
+    gameOver(gameWon) {
+        if(gameWon){
+
+        }
+
+    }
 
 }// end Game Class
 
