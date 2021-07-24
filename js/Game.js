@@ -132,7 +132,7 @@ class Game {
 
         if(this.missed === tries.length){
             console.log('Game Over');
-            this.gameOver(false);
+            this.gameOver(true);
 
         }
  
@@ -144,7 +144,40 @@ class Game {
     * @param {boolean} gameWon - Whether or not the user won the game
     */
     gameOver(gameWon) {
+        const overlay = document.getElementById("overlay");
+        const gameOverMesssage = document.getElementById("game-over-message")
+        let text = "";
         if(gameWon){
+
+            overlay.style.display = 'block';
+            gameOverMesssage.innerHTML = `YOU LOSE!`;
+
+            //RESET BOARD
+            const phraseSection = document.getElementById("phrase");
+            const letter  = phraseSection.querySelector(".letter");
+            const ul = letter.parentNode;
+            const letters = phraseSection.querySelectorAll(".letter");
+
+
+            //remove all the list items within the Phrase Section
+            for(let i = 0; i < letters.length; i++){
+                ul.removeChild(letters[i]);
+            }
+
+
+            //Reset Keyboard
+            const qwerty = document.getElementById("qwerty");
+            const keys = document.querySelectorAll('.key');
+            
+
+            for(let i = 0; i < keys.length; i++){
+                if(keys[i].classList.contains("chosen")){
+                    keys[i].classList.remove("chosen");
+                }
+
+            }
+
+            //Redset Lives
 
         }
 
