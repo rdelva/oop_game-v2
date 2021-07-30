@@ -56,15 +56,20 @@ class Game {
         const qwerty = document.getElementById("qwerty");
         qwerty.addEventListener('click', (e) => {           
 
-            if(e.target.tagName === 'BUTTON'){
-               // console.log(e.target.innerHTML);   
+            if(e.target.tagName === 'BUTTON' && !(e.target.classList.contains('chosen'))){
                 e.target.classList.add('chosen');
-                this.activePhrase.checkLetter(e.target.innerHTML);
+                this.activePhrase.checkLetter(e.target.innerHTML);         
+                
+               
             }
         }); // eventListner for keyboard
+
+
         
     }// end of handleInteraction()
 
+
+ 
 
 
 
