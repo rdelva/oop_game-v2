@@ -44,10 +44,10 @@ class Game {
         // this.getRandomPhrase().addPhraseToDisplay();
         // this.activePhrase = this.getRandomPhrase(); 
 
-        const selectedPhrase = this.getRandomPhrase();
+        let selectedPhrase = this.getRandomPhrase();
         this.activePhrase = selectedPhrase;
         this.activePhrase.addPhraseToDisplay();
-        console.log(this.activePhrase.phrase);
+        //console.log(this.activePhrase.phrase);
     }
 
 
@@ -57,7 +57,7 @@ class Game {
         qwerty.addEventListener('click', (e) => {           
 
             if(e.target.tagName === 'BUTTON'){
-                console.log(e.target.innerHTML);   
+               // console.log(e.target.innerHTML);   
                 e.target.classList.add('chosen');
                 this.activePhrase.checkLetter(e.target.innerHTML);
             }
@@ -110,7 +110,7 @@ class Game {
         const img = li.querySelector("img");
         const tries = scoreboard.querySelectorAll('.tries img')
         const hearts = scoreboard.querySelectorAll('.tries [alt="Heart Icon"]');  
-        //console.log(tries);
+        console.log(`${tries.length}  length`);
         //console.log(img.src); 
             
         for(let i = 0; i < tries.length; i++){
@@ -177,8 +177,22 @@ class Game {
 
             }
 
-            //Redset Lives
+            //Reset Lives
+            const scoreboard = document.querySelector("#scoreboard ol");
+            const li = scoreboard.querySelector("li");
+            const img = li.querySelector("img");
+            const tries = scoreboard.querySelectorAll('.tries img')
+            const lostHearts = scoreboard.querySelectorAll('.tries [alt="Lost Icon"]');  
+            this.missed = 0;
+            
+            for(let i = 0; i < tries.length; i++){
+             
+                    tries[i].src = 'images/liveHeart.png';
+                    tries[i].alt = 'Heart Icon';            
+            } 
+            console.log(this.missed);   
 
+            this.activePhrase = null;
         }
 
     }

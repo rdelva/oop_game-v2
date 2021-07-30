@@ -36,11 +36,14 @@ class Phrase {
                     this.showMatchedLetter(letter);     
                 }  else {
                     counter++;
-                }
-            }                     
+                }        
+            } else {
+                counter++;
+            }                    
         }
         // no letter was found player loses a life
         const game = new Game();
+ 
         if(counter == this.phrase.length){                       
             game.removeLife();   
         } else {
