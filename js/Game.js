@@ -56,7 +56,7 @@ class Game {
         const qwerty = document.getElementById("qwerty");
         qwerty.addEventListener('click', (e) => {           
 
-            if(e.target.tagName === 'BUTTON' && !(e.target.classList.contains('chosen'))){
+            if(e.target.tagName === 'BUTTON'){
                 e.target.classList.add('chosen');
                 this.activePhrase.checkLetter(e.target.innerHTML);         
                 
@@ -157,7 +157,7 @@ class Game {
 
             //RESET BOARD
             const phraseSection = document.getElementById("phrase");
-            const ul = letter.parentNode;
+            const ul = phraseSection.querySelector("ul");
             const letters = phraseSection.querySelectorAll("li");
 
 
@@ -195,7 +195,7 @@ class Game {
             console.log(this.missed);   
 
             this.activePhrase = null;
-        }
+        }// end of if statment
 
     }
 
