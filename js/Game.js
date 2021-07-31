@@ -92,7 +92,6 @@ class Game {
                     counter++;
                 }
             } 
-            console.log(counter);
         }
        
         if(counter === letters.length - 1){
@@ -116,7 +115,6 @@ class Game {
         const tries = scoreboard.querySelectorAll('.tries img')
         const hearts = scoreboard.querySelectorAll('.tries [alt="Heart Icon"]');  
         console.log(`${tries.length}  length`);
-        //console.log(img.src); 
             
         for(let i = 0; i < tries.length; i++){
          
@@ -159,9 +157,8 @@ class Game {
 
             //RESET BOARD
             const phraseSection = document.getElementById("phrase");
-            const letter  = phraseSection.querySelector(".letter");
             const ul = letter.parentNode;
-            const letters = phraseSection.querySelectorAll(".letter");
+            const letters = phraseSection.querySelectorAll("li");
 
 
             //remove all the list items within the Phrase Section
@@ -174,7 +171,7 @@ class Game {
             const qwerty = document.getElementById("qwerty");
             const keys = document.querySelectorAll('.key');
             
-
+            console.log(keys.length);
             for(let i = 0; i < keys.length; i++){
                 if(keys[i].classList.contains("chosen")){
                     keys[i].classList.remove("chosen");

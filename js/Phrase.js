@@ -37,9 +37,7 @@ class Phrase {
                 }  else {
                     counter++;
                 }        
-            } else {
-                counter++;
-            }                    
+            }                   
         }
         // no letter was found player loses a life
         const game = new Game();
