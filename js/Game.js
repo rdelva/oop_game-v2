@@ -82,7 +82,6 @@ class Game {
     checkForWin() {
         
         const letters = document.querySelectorAll('#phrase  .letter');        
-        console.log(letters.length);
 
         let counter = 0;
         for(let i = 0; i < letters.length -1 ; i++){
@@ -114,7 +113,7 @@ class Game {
         const img = li.querySelector("img");
         const tries = scoreboard.querySelectorAll('.tries img')
         const hearts = scoreboard.querySelectorAll('.tries [alt="Heart Icon"]');  
-        console.log(`${tries.length}  length`);
+        
             
         for(let i = 0; i < tries.length; i++){
          
@@ -131,7 +130,6 @@ class Game {
         const lostHearts = scoreboard.querySelectorAll('.tries [alt="Lost Heart"]'); 
         this.missed = lostHearts.length;
 
-        console.log(this.missed);
 
         if(this.missed === tries.length){
             console.log('Game Over');
@@ -159,7 +157,8 @@ class Game {
             const phraseSection = document.getElementById("phrase");
             const ul = phraseSection.querySelector("ul");
             const letters = phraseSection.querySelectorAll("li");
-
+            this.phrases = null;
+            this.activePhrase = null;
 
             //remove all the list items within the Phrase Section
             for(let i = 0; i < letters.length; i++){
@@ -194,8 +193,7 @@ class Game {
             } 
             console.log(this.missed);   
 
-            this.phrases = null;
-            this.activePhrase = null;
+         
         }// end of if statment
 
     }
