@@ -56,7 +56,7 @@ class Game {
         const qwerty = document.getElementById("qwerty");
         qwerty.addEventListener('click', (e) => {           
 
-            if(e.target.tagName === 'BUTTON'){
+            if(e.target.tagName === 'BUTTON' ){
                 e.target.classList.add('chosen');
                 this.activePhrase.checkLetter(e.target.innerHTML);         
                 
@@ -194,6 +194,7 @@ class Game {
             } 
             console.log(this.missed);   
 
+            this.phrases = null;
             this.activePhrase = null;
         }// end of if statment
 
