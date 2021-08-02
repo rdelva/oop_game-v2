@@ -81,7 +81,7 @@ class Game {
   
     checkForWin() {
         
-        const letters = document.querySelectorAll('#phrase  .letter');        
+        const letters = document.querySelectorAll('#phrase  li');        
 
         let counter = 0;
         for(let i = 0; i < letters.length -1 ; i++){
@@ -90,11 +90,13 @@ class Game {
                 if(letters[i].classList.contains('show')){
                     counter++;
                 }
-            } 
+            } else {
+                counter++;
+            }
         }
        
-        if(counter === letters.length - 1){
-            this.gameOver(true);
+        if(counter === letters.length){
+            this.gameOver(false);
             console.log(`You've won`);
         }
        
@@ -135,7 +137,7 @@ class Game {
             console.log('Game Over');
             this.gameOver(true);
 
-        }
+        } 
  
         
     }
@@ -151,8 +153,15 @@ class Game {
         if(gameWon){
 
             overlay.style.display = 'block';
-            gameOverMesssage.innerHTML = `YOU LOSE!`;
+            gameOverMesssage.innerHTML = `YOU LOSE!`;      
+         
+        } else {
+            overlay.style.display = 'block';
+            gameOverMesssage.innerHTML = `YOU WON!`;   
+        }    // end of if statment
 
+
+        
             //RESET BOARD
             const phraseSection = document.getElementById("phrase");
             const ul = phraseSection.querySelector("ul");
@@ -170,7 +179,7 @@ class Game {
             const qwerty = document.getElementById("qwerty");
             const keys = document.querySelectorAll('.key');
             
-            console.log(keys.length);
+           
             for(let i = 0; i < keys.length; i++){
                 if(keys[i].classList.contains("chosen")){
                     keys[i].classList.remove("chosen");
@@ -191,10 +200,6 @@ class Game {
                     tries[i].src = 'images/liveHeart.png';
                     tries[i].alt = 'Heart Icon';            
             } 
-            console.log(this.missed);   
-
-         
-        }// end of if statment
 
     }
 
