@@ -36,7 +36,8 @@ class Phrase {
                     this.showMatchedLetter(letter);     
                 }  else {
                     counter++;
-                }        
+                }
+                     
             }                   
         }
         // no letter was found player loses a life
