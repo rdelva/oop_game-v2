@@ -62,7 +62,29 @@ class Game {
                 
                
             }
-        }); // eventListner for keyboard
+        }); // eventListner if someone plays the screen keyboard
+
+        // if user selected letter from physical keyboard
+        window.addEventListener('keyup', (e) => {
+            const letter = e.key;            
+            console.log(`pressed ${letter}`);
+
+            const keys = qwerty.querySelectorAll('.key');
+            console.log(keys);
+            for(let i = 0;  i < keys.length; i++){
+                if(letter === keys[i].innerHTML) {
+                    console.log(keys[i].innerHTML);
+                    keys[i].classList.add('chosen');
+                    this.activePhrase.checkLetter(letter); 
+                }
+           
+            }
+            
+         });
+           
+    
+
+
 
 
         
