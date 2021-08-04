@@ -61,8 +61,9 @@ class Game {
 
             if(e.target.tagName === 'BUTTON' ){
                 e.target.classList.add('chosen');
-                this.activePhrase.checkLetter(e.target.innerHTML);         
-                
+                this.activePhrase.checkLetter(e.target.innerHTML);
+                e.target.setAttribute('disabled', 'disabled');         
+                console.log(e.target.innerHTML);
                
             }
         }); 
@@ -71,13 +72,14 @@ class Game {
         window.addEventListener('keyup', (e) => {
             const letter = e.key;            
             console.log(`pressed ${letter}`);
-
             const keys = qwerty.querySelectorAll('.key');
+           
             console.log(keys);
             for(let i = 0;  i < keys.length; i++){
                 if(letter === keys[i].innerHTML) {
                     console.log(keys[i].innerHTML);
                     keys[i].classList.add('chosen');
+                    keys[i].setAttribute('disabled', 'disabled');
                     this.activePhrase.checkLetter(letter); 
                 }
            
