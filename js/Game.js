@@ -63,7 +63,6 @@ class Game {
                 e.target.classList.add('chosen');
                 this.activePhrase.checkLetter(e.target.innerHTML);
                 e.target.setAttribute('disabled', 'disabled');         
-                console.log(e.target.innerHTML);
                
             }
         }); 
