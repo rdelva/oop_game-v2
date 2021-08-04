@@ -12,6 +12,9 @@ window.addEventListener('click', (e) => {
         game.startGame();
         game.handleInteraction();
         //game.activePhrase.checkLetter('a');
+
+        
+
     } 
 
 

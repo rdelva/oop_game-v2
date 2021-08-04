@@ -54,6 +54,9 @@ class Game {
 
     handleInteraction(){
         const qwerty = document.getElementById("qwerty");
+
+
+        // eventListner if someone plays the screen keyboard
         qwerty.addEventListener('click', (e) => {           
 
             if(e.target.tagName === 'BUTTON' ){
@@ -62,7 +65,7 @@ class Game {
                 
                
             }
-        }); // eventListner if someone plays the screen keyboard
+        }); 
 
         // if user selected letter from physical keyboard
         window.addEventListener('keyup', (e) => {
