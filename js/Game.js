@@ -135,7 +135,7 @@ class Game {
     */
   
     checkForWin() {
-        
+        console.log("Hi");
         const letters = document.querySelectorAll('#phrase  li');        
 
         let counter = 0;
