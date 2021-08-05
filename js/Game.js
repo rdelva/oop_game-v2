@@ -106,6 +106,10 @@ class Game {
                         keys[i].classList.add('wrong');
                         this.removeLife();
                     }
+
+                    this.checkForWin();
+
+
                 } // end of if statement          
             } // end of for loop    
          }); // end of keyup listener event  
@@ -145,7 +149,7 @@ class Game {
         }
        
         if(counter === letters.length){
-            this.gameOver(false);
+            this.gameOver(true);
             console.log(`You've won`);
         }
        
@@ -201,16 +205,14 @@ class Game {
     gameOver(gameWon) {
         const overlay = document.getElementById("overlay");
         const gameOverMesssage = document.getElementById("game-over-message")
-        let text = "";
+        
         if(gameWon){
-
             overlay.style.display = 'block';
-            gameOverMesssage.innerHTML = `<h1>YOU LOSE!</h1>`;      
-         
+            gameOverMesssage.innerHTML = `<h1>YOU WON!</h1>`;           
         } else {
             overlay.style.display = 'block';
-            gameOverMesssage.innerHTML = `<h1>YOU WON!</h1>`;   
-        }    // end of if statment
+            gameOverMesssage.innerHTML = `<h1>YOU LOSE!</h1>`; 
+        }    
 
 
         
