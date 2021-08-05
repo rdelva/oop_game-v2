@@ -62,18 +62,25 @@ class Game {
         qwerty.addEventListener('click', (e) => {           
 
             if(e.target.tagName === 'BUTTON' ){
-                chosenLetter = e.target.innerHTML;
-                e.target.classList.add('chosen');
+                chosenLetter = e.target.innerHTML;                
                 this.activePhrase.checkLetter(e.target.innerHTML);
+                const foundLetter = selectedPhrase.filter(selected => selected === chosenLetter);
+
                 e.target.setAttribute('disabled', 'disabled');      
 
-                //checks to see if the letter is in the phrase
-                const foundLetter = selectedPhrase.filter(selected => selected === chosenLetter);
 
                 if(foundLetter.length == 0){
                     e.target.classList.add('wrong');
-                }                              
-                        
+                } else {
+                    e.target.classList.add('chosen');
+                }                                  
+
+                //checks to see if the letter is in the phrase
+                if(foundLetter.length == 0){
+                    e.target.classList.add('wrong');
+                    this.removeLife();
+                }
+
 
             }
         }); 
@@ -103,12 +110,6 @@ class Game {
             } // end of for loop    
          }); // end of keyup listener event  
        
-
-         const wrongChoice = document.querySelectorAll('.wrong');
-
-         if(wrongChoice < 1){
-
-         }
 
 
 
@@ -175,17 +176,20 @@ class Game {
             } 
         }
 
-        //this.missed equals the number of lost hearts
+        this.missed++;
+        console.log(this.missed);
 
-        const lostHearts = scoreboard.querySelectorAll('.tries [alt="Lost Heart"]'); 
-        this.missed = lostHearts.length;
+        // //this.missed equals the number of lost hearts
+
+        // const lostHearts = scoreboard.querySelectorAll('.tries [alt="Lost Heart"]'); 
+        // this.missed = lostHearts.length;
 
 
-        // if(this.missed === tries.length){
-        //     console.log('Game Over');
-        //     this.gameOver(true);
+         if(this.missed === tries.length){
+             console.log('Game Over');
+             this.gameOver(true);
 
-        // } 
+         } 
  
         
     }
@@ -201,11 +205,11 @@ class Game {
         if(gameWon){
 
             overlay.style.display = 'block';
-            gameOverMesssage.innerHTML = `YOU LOSE!`;      
+            gameOverMesssage.innerHTML = `<h1>YOU LOSE!</h1>`;      
          
         } else {
             overlay.style.display = 'block';
-            gameOverMesssage.innerHTML = `YOU WON!`;   
+            gameOverMesssage.innerHTML = `<h1>YOU WON!</h1>`;   
         }    // end of if statment
 
 
@@ -216,6 +220,7 @@ class Game {
             const letters = phraseSection.querySelectorAll("li");
             this.phrases = null;
             this.activePhrase = null;
+            this.missed = 0;
 
             //remove all the list items within the Phrase Section
             for(let i = 0; i < letters.length; i++){
@@ -230,8 +235,11 @@ class Game {
            
             for(let i = 0; i < keys.length; i++){
                 if(keys[i].classList.contains("chosen")){
-                    keys[i].classList.remove("chosen");
-                }
+                    keys[i].classList.remove("chosen");               
+                    keys[i].removeAttribute("disabled");
+                    keys[i].classList.remove("wrong");
+
+                } 
 
             }
 
