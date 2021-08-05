@@ -65,9 +65,15 @@ class Game {
                 chosenLetter = e.target.innerHTML;
                 e.target.classList.add('chosen');
                 this.activePhrase.checkLetter(e.target.innerHTML);
-                e.target.setAttribute('disabled', 'disabled');         
-               
-               
+                e.target.setAttribute('disabled', 'disabled');      
+
+                //checks to see if the letter is in the phrase
+                const foundLetter = selectedPhrase.filter(selected => selected === chosenLetter);
+
+                if(foundLetter.length == 0){
+                    e.target.classList.add('wrong');
+                }                              
+                        
 
             }
         }); 
@@ -91,18 +97,18 @@ class Game {
 
                     if(foundLetter.length == 0){
                         keys[i].classList.add('wrong');
+                        this.removeLife();
                     }
-                    
-                }           
-            }
-            
-         
-
-         });
-         
+                } // end of if statement          
+            } // end of for loop    
+         }); // end of keyup listener event  
        
 
-    
+         const wrongChoice = document.querySelectorAll('.wrong');
+
+         if(wrongChoice < 1){
+
+         }
 
 
 
@@ -175,11 +181,11 @@ class Game {
         this.missed = lostHearts.length;
 
 
-        if(this.missed === tries.length){
-            console.log('Game Over');
-            this.gameOver(true);
+        // if(this.missed === tries.length){
+        //     console.log('Game Over');
+        //     this.gameOver(true);
 
-        } 
+        // } 
  
         
     }
