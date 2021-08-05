@@ -54,16 +54,21 @@ class Game {
 
     handleInteraction(){
         const qwerty = document.getElementById("qwerty");
-
-
+        console.log(this.activePhrase.phrase);
+        const selectedPhrase = this.activePhrase.phrase.split("");
+        console.log(selectedPhrase);
+        let chosenLetter = '';
         // eventListner if someone plays the screen keyboard
         qwerty.addEventListener('click', (e) => {           
 
             if(e.target.tagName === 'BUTTON' ){
+                chosenLetter = e.target.innerHTML;
                 e.target.classList.add('chosen');
                 this.activePhrase.checkLetter(e.target.innerHTML);
                 e.target.setAttribute('disabled', 'disabled');         
                
+               
+
             }
         }); 
 
@@ -76,16 +81,27 @@ class Game {
             console.log(keys);
             for(let i = 0;  i < keys.length; i++){
                 if(letter === keys[i].innerHTML) {
-                    console.log(keys[i].innerHTML);
+                    chosenLetter = keys[i].innerHTML;
                     keys[i].classList.add('chosen');
                     keys[i].setAttribute('disabled', 'disabled');
                     this.activePhrase.checkLetter(letter); 
-                }
-           
+
+                    //checks to see if the letter is in the phrase
+                    const foundLetter = selectedPhrase.filter(selected => selected === letter);
+
+                    if(foundLetter.length == 0){
+                        keys[i].classList.add('wrong');
+                    }
+                    
+                }           
             }
             
+         
+
          });
-           
+         
+       
+
     
 
 
