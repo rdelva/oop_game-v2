@@ -29,21 +29,15 @@ class Phrase {
     * @param (string) letter - Letter to check
     */
     checkLetter(letter) {
-        let counter = 0; // if counter matches the length it means no letter was found
         for(let i = 0; i < this.phrase.length; i++){
             if(this.phrase[i] !== ""){ // skips the spaces
                 if(this.phrase[i] === letter ){                      
                     this.showMatchedLetter(letter);     
-                }  else {
-                    counter++;
-                }
-                     
+                }                      
             }                   
         }
      
 
-
-        return counter;
 
     }
 
