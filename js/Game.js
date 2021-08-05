@@ -68,18 +68,17 @@ class Game {
 
                 e.target.setAttribute('disabled', 'disabled');      
 
-
-                if(foundLetter.length == 0){
-                    e.target.classList.add('wrong');
-                } else {
-                    e.target.classList.add('chosen');
-                }                                  
-
+               
                 //checks to see if the letter is in the phrase
                 if(foundLetter.length == 0){
                     e.target.classList.add('wrong');
                     this.removeLife();
-                }
+                } else {
+                    e.target.classList.add('chosen');
+                    this.checkForWin();
+                }                                  
+
+             
 
 
             }
@@ -93,7 +92,7 @@ class Game {
            
             console.log(keys);
             for(let i = 0;  i < keys.length; i++){
-                if(letter === keys[i].innerHTML) {
+                if(letter === keys[i].innerHTML && letter != null) {
                     chosenLetter = keys[i].innerHTML;
                     keys[i].classList.add('chosen');
                     keys[i].setAttribute('disabled', 'disabled');
@@ -136,10 +135,11 @@ class Game {
   
     checkForWin() {
         console.log("Hi");
-        const letters = document.querySelectorAll('#phrase  li');        
-
+        //const letters = document.querySelectorAll('#phrase  li');        
+        const letters = document.querySelectorAll('.letter');  
+        console.log(letters);
         let counter = 0;
-        for(let i = 0; i < letters.length -1 ; i++){
+        for(let i = 0; i < letters.length; i++){
            
             if(letters[i] !== "" ){                
                 if(letters[i].classList.contains('show')){
@@ -185,12 +185,6 @@ class Game {
         this.missed++;
         console.log(this.missed);
 
-        // //this.missed equals the number of lost hearts
-
-        // const lostHearts = scoreboard.querySelectorAll('.tries [alt="Lost Heart"]'); 
-        // this.missed = lostHearts.length;
-
-
          if(this.missed === tries.length){
              console.log('Game Over');
              this.gameOver(false);
@@ -216,14 +210,12 @@ class Game {
             gameOverMesssage.innerHTML = `<h1>YOU LOSE!</h1>`; 
         }    
 
-
-        
             //RESET BOARD
             const phraseSection = document.getElementById("phrase");
             const ul = phraseSection.querySelector("ul");
             const letters = phraseSection.querySelectorAll("li");
             this.phrases = null;
-            this.activePhrase = null;
+            
             this.missed = 0;
 
             //remove all the list items within the Phrase Section
@@ -258,6 +250,8 @@ class Game {
                     tries[i].src = 'images/liveHeart.png';
                     tries[i].alt = 'Heart Icon';            
             } 
+        
+
 
     }
 
