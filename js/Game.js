@@ -105,9 +105,11 @@ class Game {
                     if(foundLetter.length == 0){
                         keys[i].classList.add('wrong');
                         this.removeLife();
+                    } else {
+                        this.checkForWin();
+
                     }
 
-                    this.checkForWin();
 
 
                 } // end of if statement          
@@ -191,7 +193,7 @@ class Game {
 
          if(this.missed === tries.length){
              console.log('Game Over');
-             this.gameOver(true);
+             this.gameOver(false);
 
          } 
  
