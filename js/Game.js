@@ -238,9 +238,7 @@ class Game {
                     keys[i].classList.remove("chosen");               
                     keys[i].removeAttribute("disabled");
                     keys[i].classList.remove("wrong");
-
                 } 
-
             }
 
             //Reset Lives
