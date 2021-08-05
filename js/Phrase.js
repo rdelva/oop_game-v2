@@ -40,15 +40,7 @@ class Phrase {
                      
             }                   
         }
-        // no letter was found player loses a life
-        //const game = new Game();
- 
-        // if(counter == this.phrase.length){                       
-        //     game.removeLife();   
-        // } else {
-        //     game.checkForWin();
-           
-        // }
+     
 
 
         return counter;
