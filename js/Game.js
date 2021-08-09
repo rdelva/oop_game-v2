@@ -171,7 +171,8 @@ class Game {
         const img = li.querySelector("img");
         const tries = scoreboard.querySelectorAll('.tries img')
         const hearts = scoreboard.querySelectorAll('.tries [alt="Heart Icon"]');  
-        
+        this.missed++;
+        console.log(this.missed);
             
         for(let i = 0; i < tries.length; i++){
          
@@ -183,8 +184,7 @@ class Game {
             } 
         }
 
-        this.missed++;
-        console.log(this.missed);
+ 
 
          if(this.missed === tries.length){
              console.log('Game Over');
