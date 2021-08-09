@@ -71,6 +71,7 @@ class Game {
                
                 //checks to see if the letter is in the phrase
                 if(foundLetter.length == 0){
+                    e.target.classList.add('chosen');
                     e.target.classList.add('wrong');
                     this.removeLife();
                 } else {
