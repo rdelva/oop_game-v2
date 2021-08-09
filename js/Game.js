@@ -174,13 +174,13 @@ class Game {
         this.missed++;
         console.log(this.missed);
             
-        for(let i = 0; i < tries.length; i++){
+        for(let i = 0; i < this.missed; i++){
          
             if(tries[i].alt == 'Heart Icon' ){
                 tries[i].src = 'images/lostHeart.png';
                 tries[i].alt = 'Lost Heart';
                                
-                break;
+               
             } 
         }
 
