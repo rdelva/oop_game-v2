@@ -86,7 +86,7 @@ class Game {
         }); 
 
         // if user selected letter from physical keyboard
-        window.addEventListener('keyup', (e) => {
+        window.addEventListener('keydown', (e) => {
             const letter = e.key;            
             console.log(`pressed ${letter}`);
             const keys = qwerty.querySelectorAll('.key');
