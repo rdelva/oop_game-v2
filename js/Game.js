@@ -54,7 +54,7 @@ class Game {
 
     handleInteraction(){
         const qwerty = document.getElementById("qwerty");
-        console.log(this.activePhrase.phrase);
+        //console.log(this.activePhrase.phrase);
         const selectedPhrase = this.activePhrase.phrase.split("");
         console.log(selectedPhrase);
         let chosenLetter = '';
@@ -88,10 +88,10 @@ class Game {
         // if user selected letter from physical keyboard
         window.addEventListener('keydown', (e) => {
             const letter = e.key;            
-            console.log(`pressed ${letter}`);
+            //console.log(`pressed ${letter}`);
             const keys = qwerty.querySelectorAll('.key');
            
-            console.log(keys);
+            //console.log(keys);
             for(let i = 0;  i < keys.length; i++){
                 if(letter === keys[i].innerHTML && letter != null) {
                     chosenLetter = keys[i].innerHTML;
@@ -135,10 +135,9 @@ class Game {
     */
   
     checkForWin() {
-        console.log("Hi");
         //const letters = document.querySelectorAll('#phrase  li');        
         const letters = document.querySelectorAll('.letter');  
-        console.log(letters);
+        //console.log(letters);
         let counter = 0;
         for(let i = 0; i < letters.length; i++){
            
@@ -172,7 +171,7 @@ class Game {
         const tries = scoreboard.querySelectorAll('.tries img')
         const hearts = scoreboard.querySelectorAll('.tries [alt="Heart Icon"]');  
         this.missed++;
-        console.log(this.missed);
+        //console.log(this.missed);
             
         for(let i = 0; i < this.missed; i++){
          
@@ -216,7 +215,7 @@ class Game {
             const ul = phraseSection.querySelector("ul");
             const letters = phraseSection.querySelectorAll("li");
             this.phrases = null;
-            
+            this.activePhrase = null;
             this.missed = 0;
 
             //remove all the list items within the Phrase Section
