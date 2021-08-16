@@ -52,20 +52,15 @@ class Game {
 
 
     handleInteraction(){
-        console.log("3");  
 
-        const qwerty = document.getElementById("qwerty");
         //console.log(this.activePhrase.phrase);
         const selectedPhrase = this.activePhrase.phrase.split("");
         console.log(selectedPhrase);
-        let chosenLetter = '';
+        
         // eventListner if someone plays the screen keyboard
         qwerty.addEventListener('click', (e) => {           
             
-        console.log("5");
             if(e.target.tagName === 'BUTTON' ){
-                console.log("6");
-                chosenLetter = e.target.innerHTML;                
                 this.activePhrase.checkLetter(e.target.innerHTML);
                 const foundLetter = selectedPhrase.filter(selected => selected === chosenLetter);
 
