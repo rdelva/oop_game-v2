@@ -187,6 +187,13 @@ button {
   color: #fff;
 }
 
+#btn__reset:hover {
+  background-color: #4ac0d5;
+  color:#fff;
+ transition-property: background-color, color;
+  transition-duration: .6s;
+}
+
 .win {
   background-color: var(--color-win);
 }
