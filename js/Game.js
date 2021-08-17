@@ -51,70 +51,71 @@ class Game {
     }
 
 
-    handleInteraction(){
+    handleInteraction(chosenLetter){
 
         //console.log(this.activePhrase.phrase);
+        //console.log(selectedPhrase);
+        //console.log(chosenLetter.innerHTML);
         const selectedPhrase = this.activePhrase.phrase.split("");
-        console.log(selectedPhrase);
+        let letter =""
         
-        // eventListner if someone plays the screen keyboard
-        qwerty.addEventListener('click', (e) => {           
-            
-            if(e.target.tagName === 'BUTTON' ){
-                this.activePhrase.checkLetter(e.target.innerHTML);
-                const foundLetter = selectedPhrase.filter(selected => selected === chosenLetter);
 
-                e.target.setAttribute('disabled', 'disabled');      
-
-               
-                //checks to see if the letter is in the phrase
-                if(foundLetter.length == 0){
-                    e.target.classList.add('chosen');
-                    e.target.classList.add('wrong');
-                    this.removeLife();
-                } else {
-                    e.target.classList.add('chosen');
-                    this.checkForWin();
-                }                                  
-
-             
+        if(chosenLetter.type =='click'){
+            chosenLetter.target.setAttribute('disabled', 'disabled');      
 
 
+            letter = chosenLetter.target.innerHTML;
+            this.activePhrase.checkLetter(letter);
+
+            console.log(`mouse: ${letter}`); 
+          
+            const foundLetter = selectedPhrase.filter(selected => selected === letter);
+          
+            if(foundLetter.length == 0){
+                chosenLetter.target.classList.add('chosen');
+                chosenLetter.target.classList.add('wrong');
+                this.removeLife();
+            } else {
+               chosenLetter.target.classList.add('chosen');
+               this.checkForWin();
+            }            
+
+    
+        } else {           
+            if(chosenLetter.type == 'keydown'){
+                letter = chosenLetter.key;
+                this.activePhrase.checkLetter(letter);
+
+                console.log(`keyboard: ${letter}`);
+                
+                const keys = qwerty.querySelectorAll('.key');
+
+                // const foundLetter2 = keys.filter(key => key === letter);
+                // console.log(foundLetter2);
+                for(let i = 0;  i < keys.length; i++){
+                    if(letter === keys[i].innerHTML && letter != null) {
+                        chosenLetter = keys[i].innerHTML;
+                        keys[i].classList.add('chosen');
+                        keys[i].setAttribute('disabled', 'disabled');
+                        this.activePhrase.checkLetter(letter); 
+    
+                        //checks to see if the letter is in the phrase
+                        const foundLetter = selectedPhrase.filter(selected => selected === letter);
+    
+                        if(foundLetter.length == 0){
+                            keys[i].classList.add('wrong');
+                            this.removeLife();
+                        } else {
+                            this.checkForWin();
+    
+                        }    
+    
+                    } // end of if statement          
+                } // end of for loop 
+
+                
             }
-        }); 
-
-        // if user selected letter from physical keyboard
-        window.addEventListener('keydown', (e) => {
-            const letter = e.key;            
-            //console.log(`pressed ${letter}`);
-            const keys = qwerty.querySelectorAll('.key');
-           
-            //console.log(keys);
-            for(let i = 0;  i < keys.length; i++){
-                if(letter === keys[i].innerHTML && letter != null) {
-                    chosenLetter = keys[i].innerHTML;
-                    keys[i].classList.add('chosen');
-                    keys[i].setAttribute('disabled', 'disabled');
-                    this.activePhrase.checkLetter(letter); 
-
-                    //checks to see if the letter is in the phrase
-                    const foundLetter = selectedPhrase.filter(selected => selected === letter);
-
-                    if(foundLetter.length == 0){
-                        keys[i].classList.add('wrong');
-                        this.removeLife();
-                    } else {
-                        this.checkForWin();
-
-                    }
-
-
-
-                } // end of if statement          
-            } // end of for loop    
-         }); // end of keyup listener event  
-       
-
+        }
 
 
 
@@ -212,8 +213,8 @@ class Game {
             const phraseSection = document.getElementById("phrase");
             const ul = phraseSection.querySelector("ul");
             const letters = phraseSection.querySelectorAll("li");
-            this.phrases = null;
-            this.activePhrase = null;
+            // this.phrases = null;
+            // this.activePhrase = null;
             this.missed = 0;
 
             //remove all the list items within the Phrase Section

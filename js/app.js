@@ -11,9 +11,7 @@ const startButton = document.getElementById("btn__reset");
 startButton.addEventListener('click', (e) => {
     if(e.target.id === startButton.id){    
         game.startGame();    
-        //game.activePhrase.checkLetter('a');
-
-        
+        //game.activePhrase.checkLetter('a');    
 
     } 
 }); //event Listner for start game
@@ -21,11 +19,25 @@ startButton.addEventListener('click', (e) => {
 
 const qwerty = document.getElementById("qwerty");
 qwerty.addEventListener('click', (e) => {
-    let chosenLetter = '';
-    chosenLetter = e.target.innerHTML;                
-    if(e.target.tagName === 'BUTTON' )
+    let chosenLetter = e;
+    //chosenLetter = e.target; 
+    console.log(chosenLetter);               
+    if(chosenLetter.target.tagName === 'BUTTON' ){
 
-    game.handleInteraction();
+        game.handleInteraction(chosenLetter);
+    }
+});
+
+
+
+window.addEventListener('keydown', (e) => {
+    const pickLetter  = e;
+    console.log(pickLetter);               
+
+    game.handleInteraction(pickLetter);
+
 
 
 });
+
+
