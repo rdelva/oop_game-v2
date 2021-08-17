@@ -21,7 +21,7 @@ const qwerty = document.getElementById("qwerty");
 qwerty.addEventListener('click', (e) => {
     let chosenLetter = e;
     //chosenLetter = e.target; 
-    console.log(chosenLetter);               
+    //console.log(chosenLetter);               
     if(chosenLetter.target.tagName === 'BUTTON' ){
 
         game.handleInteraction(chosenLetter);
@@ -32,11 +32,8 @@ qwerty.addEventListener('click', (e) => {
 
 window.addEventListener('keydown', (e) => {
     const pickLetter  = e;
-    console.log(pickLetter);               
-
     game.handleInteraction(pickLetter);
-
-
+    //console.log(pickLetter);             
 
 });
 

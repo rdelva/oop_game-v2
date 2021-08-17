@@ -41,21 +41,15 @@ class Game {
         const overlay = document.getElementById("overlay");
         overlay.style.display = 'none';    
         
-        // this.getRandomPhrase().addPhraseToDisplay();
-        // this.activePhrase = this.getRandomPhrase(); 
-
         let selectedPhrase = this.getRandomPhrase();
         this.activePhrase = selectedPhrase;
         this.activePhrase.addPhraseToDisplay();
-        //console.log(this.activePhrase.phrase);
     }
 
 
     handleInteraction(chosenLetter){
 
-        //console.log(this.activePhrase.phrase);
-        //console.log(selectedPhrase);
-        //console.log(chosenLetter.innerHTML);
+
         const selectedPhrase = this.activePhrase.phrase.split("");
         let letter =""
         
@@ -67,7 +61,7 @@ class Game {
             letter = chosenLetter.target.innerHTML;
             this.activePhrase.checkLetter(letter);
 
-            console.log(`mouse: ${letter}`); 
+            //console.log(`mouse: ${letter}`); 
           
             const foundLetter = selectedPhrase.filter(selected => selected === letter);
           
@@ -86,12 +80,11 @@ class Game {
                 letter = chosenLetter.key;
                 this.activePhrase.checkLetter(letter);
 
-                console.log(`keyboard: ${letter}`);
+                //console.log(`keyboard: ${letter}`);
                 
                 const keys = qwerty.querySelectorAll('.key');
 
-                // const foundLetter2 = keys.filter(key => key === letter);
-                // console.log(foundLetter2);
+           
                 for(let i = 0;  i < keys.length; i++){
                     if(letter === keys[i].innerHTML && letter != null) {
                         chosenLetter = keys[i].innerHTML;
@@ -151,7 +144,7 @@ class Game {
        
         if(counter === letters.length){
             this.gameOver(true);
-            console.log(`You've won`);
+            //console.log(`You've won`);
         }
        
 
