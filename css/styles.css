@@ -202,3 +202,10 @@ button {
 .lose a {
   color: var(--color-lose);
 }
+
+/*personalized classes */
+/*keyboard*/
+.key:hover {
+  border: 1px solid red;
+}
+

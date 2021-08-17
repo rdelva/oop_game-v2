@@ -195,11 +195,11 @@ class Game {
         const gameOverMesssage = document.getElementById("game-over-message")
         
         if(gameWon){
-            overlay.style.display = 'block';
-            gameOverMesssage.innerHTML = `<h1>YOU WON!</h1>`;           
+            overlay.style.display = 'flex';
+            gameOverMesssage.innerHTML = `YOU WON!`;           
         } else {
-            overlay.style.display = 'block';
-            gameOverMesssage.innerHTML = `<h1>YOU LOSE!</h1>`; 
+           overlay.style.display = 'flex';
+            gameOverMesssage.innerHTML = `YOU LOSE!`; 
         }    
 
             //RESET BOARD
