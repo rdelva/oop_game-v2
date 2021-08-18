@@ -175,8 +175,6 @@ class Game {
             } 
         }
 
- 
-
          if(this.missed === tries.length){
              console.log('Game Over');
              this.gameOver(false);
