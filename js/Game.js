@@ -59,10 +59,12 @@ class Game {
 
 
             letter = chosenLetter.target.innerHTML;
-            this.activePhrase.checkLetter(letter);
+           // this.activePhrase.checkLetter(letter);
 
-            //console.log(`mouse: ${letter}`); 
-          
+            if(this.activePhrase.checkLetter(letter)){
+                this.activePhrase.showMatchedLetter(letter);
+            }
+
             const foundLetter = selectedPhrase.filter(selected => selected === letter);
           
             if(foundLetter.length == 0){
@@ -79,6 +81,10 @@ class Game {
             if(chosenLetter.type == 'keydown'){
                 letter = chosenLetter.key;
                 this.activePhrase.checkLetter(letter);
+
+                if(this.activePhrase.checkLetter()){
+                    this.showMatchedLetter(letter);
+                }
 
                 //console.log(`keyboard: ${letter}`);
                 

@@ -31,8 +31,9 @@ class Phrase {
     checkLetter(letter) {
         for(let i = 0; i < this.phrase.length; i++){
             if(this.phrase[i] !== ""){ // skips the spaces
-                if(this.phrase[i] === letter ){                      
-                    this.showMatchedLetter(letter);     
+                if(this.phrase[i] === letter ){ 
+                    return true;                     
+                    //this.showMatchedLetter(letter);     
                 }                      
             }                   
         }
