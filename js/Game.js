@@ -59,9 +59,10 @@ class Game {
 
 
             letter = chosenLetter.target.innerHTML;
-           // this.activePhrase.checkLetter(letter);
-
-            if(this.activePhrase.checkLetter(letter)){
+           let letterCheck = this.activePhrase.checkLetter(letter);
+            //this.activePhrase.checkLetter(letter)
+            
+            if(letterCheck){
                 this.activePhrase.showMatchedLetter(letter);
             }
 
@@ -80,10 +81,10 @@ class Game {
         } else {           
             if(chosenLetter.type == 'keydown'){
                 letter = chosenLetter.key;
-                this.activePhrase.checkLetter(letter);
+                //this.activePhrase.checkLetter(letter);
 
-                if(this.activePhrase.checkLetter()){
-                    this.showMatchedLetter(letter);
+                if(this.activePhrase.checkLetter(letter)){
+                    this.activePhrase.showMatchedLetter(letter);
                 }
 
                 //console.log(`keyboard: ${letter}`);
@@ -202,10 +203,13 @@ class Game {
         
         if(gameWon){
             overlay.style.display = 'flex';
-            gameOverMesssage.innerHTML = `YOU WON!`;           
+            gameOverMesssage.innerHTML = `YOU WON!`;
+            overlay.classList.add('win');           
         } else {
            overlay.style.display = 'flex';
             gameOverMesssage.innerHTML = `YOU LOSE!`; 
+            overlay.classList.add('lose');           
+
         }    
 
             //RESET BOARD
