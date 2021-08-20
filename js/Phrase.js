@@ -29,7 +29,7 @@ class Phrase {
     * @param (string) letter - Letter to check
     */
     checkLetter(letter) {
-        let checkLetter;
+     
        return  this.phrase.includes(letter);
      
     }
