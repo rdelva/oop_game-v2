@@ -34,7 +34,9 @@ class Phrase {
                 if(this.phrase[i] === letter ){ 
                     return true;                     
                     //this.showMatchedLetter(letter);     
-                }                      
+                } else {
+                    return false;
+                }                     
             }                   
         }
      
