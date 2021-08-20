@@ -58,7 +58,7 @@ class Game {
 
 
         const selectedPhrase = this.activePhrase.phrase.split("");
-        let letter =""
+        let letter ="";
         
 
         if(chosenLetter.type =='click'){
@@ -177,7 +177,7 @@ class Game {
          
         const scoreboard = document.querySelector("#scoreboard ol");
         const li = scoreboard.querySelector("li");
-        const tries = scoreboard.querySelectorAll('.tries img')
+        const tries = scoreboard.querySelectorAll('.tries img');
         this.missed++;
         //console.log(this.missed);
             
@@ -204,7 +204,7 @@ class Game {
     */
     gameOver(gameWon) {
         const overlay = document.getElementById("overlay");
-        const gameOverMesssage = document.getElementById("game-over-message")
+        const gameOverMesssage = document.getElementById("game-over-message");
         
         if(gameWon){
             overlay.style.display = 'flex';
@@ -221,8 +221,7 @@ class Game {
             const phraseSection = document.getElementById("phrase");
             const ul = phraseSection.querySelector("ul");
             const letters = phraseSection.querySelectorAll("li");
-            // this.phrases = null;
-            // this.activePhrase = null;
+           
             this.missed = 0;
 
             //remove all the list items within the Phrase Section
@@ -245,7 +244,7 @@ class Game {
 
             //Reset Lives
             const scoreboard = document.querySelector("#scoreboard ol");
-            const tries = scoreboard.querySelectorAll('.tries img')
+            const tries = scoreboard.querySelectorAll('.tries img');
             this.missed = 0;
             
             for(let i = 0; i < tries.length; i++){
