@@ -39,7 +39,14 @@ class Game {
     */
     startGame() {
         const overlay = document.getElementById("overlay");
-        overlay.style.display = 'none';    
+        overlay.style.display = 'none';
+
+        /** Removes the class win or lose after you press the start button */
+        if(overlay.classList.contains('win') || overlay.classList.contains('lose') ){
+            overlay.classList.remove('win');
+            overlay.classList.remove('lose');    
+        }
+            
         
         let selectedPhrase = this.getRandomPhrase();
         this.activePhrase = selectedPhrase;
@@ -61,7 +68,7 @@ class Game {
             letter = chosenLetter.target.innerHTML;
            let letterCheck = this.activePhrase.checkLetter(letter);
             //this.activePhrase.checkLetter(letter)
-            
+
             if(letterCheck){
                 this.activePhrase.showMatchedLetter(letter);
             }
@@ -82,8 +89,14 @@ class Game {
             if(chosenLetter.type == 'keydown'){
                 letter = chosenLetter.key;
                 //this.activePhrase.checkLetter(letter);
+                // if(this.activePhrase.checkLetter(letter)){
+                //     this.activePhrase.showMatchedLetter(letter);
+                // }
 
-                if(this.activePhrase.checkLetter(letter)){
+                let letterCheck = this.activePhrase.checkLetter(letter);
+                //this.activePhrase.checkLetter(letter)
+                
+                if(letterCheck){
                     this.activePhrase.showMatchedLetter(letter);
                 }
 
