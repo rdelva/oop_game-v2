@@ -177,9 +177,7 @@ class Game {
          
         const scoreboard = document.querySelector("#scoreboard ol");
         const li = scoreboard.querySelector("li");
-        const img = li.querySelector("img");
         const tries = scoreboard.querySelectorAll('.tries img')
-        const hearts = scoreboard.querySelectorAll('.tries [alt="Heart Icon"]');  
         this.missed++;
         //console.log(this.missed);
             
@@ -234,7 +232,6 @@ class Game {
 
 
             //Reset Keyboard
-            const qwerty = document.getElementById("qwerty");
             const keys = document.querySelectorAll('.key');
             
            
@@ -248,10 +245,7 @@ class Game {
 
             //Reset Lives
             const scoreboard = document.querySelector("#scoreboard ol");
-            const li = scoreboard.querySelector("li");
-            const img = li.querySelector("img");
             const tries = scoreboard.querySelectorAll('.tries img')
-            const lostHearts = scoreboard.querySelectorAll('.tries [alt="Lost Icon"]');  
             this.missed = 0;
             
             for(let i = 0; i < tries.length; i++){
