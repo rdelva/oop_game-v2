@@ -65,9 +65,9 @@ class Game {
             chosenLetter.target.setAttribute('disabled', 'disabled');      
 
 
-            letter = chosenLetter.target.innerHTML;
+           letter = chosenLetter.target.innerHTML;
            let letterCheck = this.activePhrase.checkLetter(letter);
-            //this.activePhrase.checkLetter(letter)
+           
 
             if(letterCheck){
                 this.activePhrase.showMatchedLetter(letter);
@@ -88,19 +88,13 @@ class Game {
         } else {           
             if(chosenLetter.type == 'keydown'){
                 letter = chosenLetter.key;
-                //this.activePhrase.checkLetter(letter);
-                // if(this.activePhrase.checkLetter(letter)){
-                //     this.activePhrase.showMatchedLetter(letter);
-                // }
-
+         
                 let letterCheck = this.activePhrase.checkLetter(letter);
-                //this.activePhrase.checkLetter(letter)
                 
                 if(letterCheck){
                     this.activePhrase.showMatchedLetter(letter);
                 }
 
-                //console.log(`keyboard: ${letter}`);
                 
                 const keys = qwerty.querySelectorAll('.key');
 

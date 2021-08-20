@@ -31,19 +31,7 @@ class Phrase {
     checkLetter(letter) {
         let checkLetter;
        return  this.phrase.includes(letter);
-        // for(let i = 0; i < this.phrase.length; i++){
-        //     if(this.phrase[i] !== ""){ // skips the spaces
-        //         if(this.phrase[i] === letter ){ 
-        //             return true;                     
-        //             //this.showMatchedLetter(letter);     
-        //         } else {
-        //             return false;
-        //         }                     
-        //     }                   
-        // }
      
-
-
     }
 
 
@@ -55,8 +43,7 @@ class Phrase {
         const guessPhrase = document.querySelectorAll("#phrase ul li");
 
             for(let i = 0; i < guessPhrase.length; i++){
-                //console.log(letter);
-                //console.log(guessPhrase[i]);
+               
                 if(guessPhrase[i].innerHTML === letter){
                     guessPhrase[i].classList.remove("hide");
                     guessPhrase[i].classList.add("show");                    
