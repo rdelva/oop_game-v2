@@ -78,10 +78,17 @@ class Game {
             if(foundLetter.length == 0){
                 chosenLetter.target.classList.add('chosen');
                 chosenLetter.target.classList.add('wrong');
-                this.removeLife();
+                let noHeart = this.removeLife();
+                if(noHeart){
+                    this.gameOver(false);
+                }
             } else {
                chosenLetter.target.classList.add('chosen');
-               this.checkForWin();
+               //if checkForWin returns true, trigger gameOver() and win the game;
+               let checkWin = this.checkForWin();               
+               if(checkWin){
+                this.gameOver(true);   
+               }
             }            
 
     
@@ -112,9 +119,18 @@ class Game {
         
                             if(foundLetter.length == 0){
                                 keys[i].classList.add('wrong');
-                                this.removeLife();
+
+                                // if there are no hearts left. Set false value to gameOver to lose the game
+                                let noHeart = this.removeLife();
+                                if(noHeart){
+                                    this.gameOver(false);
+                                }
                             } else {
-                                this.checkForWin();
+                                //this.checkForWin();
+                                let checkWin = this.checkForWin();               
+                                if(checkWin){
+                                 this.gameOver(true);   
+                                }
         
                             }    
         
@@ -161,8 +177,9 @@ class Game {
         }
        
         if(counter === letters.length){
-            this.gameOver(true);
+            //this.gameOver(true);
             //console.log(`You've won`);
+            return true;
         }
        
 
@@ -185,14 +202,13 @@ class Game {
          
             if(tries[i].alt == 'Heart Icon' ){
                 tries[i].src = 'images/lostHeart.png';
-                tries[i].alt = 'Lost Heart';
-                               
-               
+                tries[i].alt = 'Lost Heart';                            
             } 
         }
 
          if(this.missed === tries.length){             
-             this.gameOver(false);
+             //this.gameOver(false);
+             return true;
          } 
  
         
@@ -244,7 +260,7 @@ class Game {
 
             //Reset Lives
             const scoreboard = document.querySelector("#scoreboard ol");
-            const tries = scoreboard.querySelectorAll('.tries img');
+            const tries = scoreboard.querySelectorAll('.tries img')
             this.missed = 0;
             
             for(let i = 0; i < tries.length; i++){
