@@ -3,13 +3,14 @@
  * app.js */
 
 
-const game = new Game();
+let  game = null;
 
 
 // if you select the Start Button the  game will begin
 const startButton = document.getElementById("btn__reset");
 startButton.addEventListener('click', (e) => {
     if(e.target.id === startButton.id){    
+        game = new Game();
         game.startGame();          
 
     } 
