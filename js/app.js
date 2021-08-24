@@ -8,11 +8,17 @@ let  game = null;
 
 // if you select the Start Button the  game will begin
 const startButton = document.getElementById("btn__reset");
+const overlay = document.querySelector('#overlay');
+
 startButton.addEventListener('click', (e) => {
+
+    if(overlay.classList.contains('win') || overlay.classList.contains('lose')){
+        game.resetGame();
+    }
+
     if(e.target.id === startButton.id){    
         game = new Game();
-        game.startGame();          
-
+        game.startGame();        
     } 
 }); //event Listner for start game
 
@@ -30,8 +36,11 @@ qwerty.addEventListener('click', (e) => {
 
 //User uses the keyboard to enter value
 window.addEventListener('keydown', (e) => {
-    const pickLetter  = e;
-    game.handleInteraction(pickLetter);
+    if(game != null){
+        const pickLetter  = e;
+        game.handleInteraction(pickLetter);
+    }
+    
              
 
 });

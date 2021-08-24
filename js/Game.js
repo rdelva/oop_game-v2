@@ -232,46 +232,45 @@ class Game {
             overlay.classList.add('lose');           
 
         }    
-
-            //RESET BOARD
-            const phraseSection = document.getElementById("phrase");
-            const ul = phraseSection.querySelector("ul");
-            const letters = phraseSection.querySelectorAll("li");
-           
-            this.missed = 0;
-
-            //remove all the list items within the Phrase Section
-            for(let i = 0; i < letters.length; i++){
-                ul.removeChild(letters[i]);
-            }
-
-
-            //Reset Keyboard
-            const keys = document.querySelectorAll('.key');
-            
-           
-            for(let i = 0; i < keys.length; i++){
-                if(keys[i].classList.contains("chosen")){
-                    keys[i].classList.remove("chosen");               
-                    keys[i].removeAttribute("disabled");
-                    keys[i].classList.remove("wrong");
-                } 
-            }
-
-            //Reset Lives
-            const scoreboard = document.querySelector("#scoreboard ol");
-            const tries = scoreboard.querySelectorAll('.tries img')
-            this.missed = 0;
-            
-            for(let i = 0; i < tries.length; i++){
-             
-                    tries[i].src = 'images/liveHeart.png';
-                    tries[i].alt = 'Heart Icon';            
-            } 
-        
-
-
     }
 
+    resetGame(){
+         //RESET BOARD
+         const phraseSection = document.getElementById("phrase");
+         const ul = phraseSection.querySelector("ul");
+         const letters = phraseSection.querySelectorAll("li");
+        
+         this.missed = 0;
+
+         //remove all the list items within the Phrase Section
+         for(let i = 0; i < letters.length; i++){
+             ul.removeChild(letters[i]);
+         }
+
+
+         //Reset Keyboard
+         const keys = document.querySelectorAll('.key');
+         
+        
+         for(let i = 0; i < keys.length; i++){
+             if(keys[i].classList.contains("chosen")){
+                 keys[i].classList.remove("chosen");               
+                 keys[i].removeAttribute("disabled");
+                 keys[i].classList.remove("wrong");
+             } 
+         }
+
+         //Reset Lives
+         const scoreboard = document.querySelector("#scoreboard ol");
+         const tries = scoreboard.querySelectorAll('.tries img')
+         this.missed = 0;
+         
+         for(let i = 0; i < tries.length; i++){
+          
+                 tries[i].src = 'images/liveHeart.png';
+                 tries[i].alt = 'Heart Icon';            
+         } 
+     
+    }// resetGame()
 }// end Game Class
 
