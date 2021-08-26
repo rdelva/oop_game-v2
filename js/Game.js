@@ -225,14 +225,21 @@ class Game {
         if(gameWon){
             overlay.style.display = 'flex';
             gameOverMesssage.innerHTML = `YOU WON!`;
-            overlay.classList.add('win');           
+            overlay.classList.add('win');
+           
+                       
         } else {
            overlay.style.display = 'flex';
             gameOverMesssage.innerHTML = `YOU LOSE!`; 
-            overlay.classList.add('lose');           
+            overlay.classList.add('lose');                  
 
         }    
     }
+
+    /** Resets the game the user wins or lose the game. 
+     * This occurs when the user presses the start button
+     * 
+     */
 
     resetGame(){
          //RESET BOARD
@@ -249,8 +256,7 @@ class Game {
 
 
          //Reset Keyboard
-         const keys = document.querySelectorAll('.key');
-         
+         const keys = document.querySelectorAll('.key');         
         
          for(let i = 0; i < keys.length; i++){
              if(keys[i].classList.contains("chosen")){

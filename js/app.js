@@ -12,6 +12,7 @@ const overlay = document.querySelector('#overlay');
 
 startButton.addEventListener('click', (e) => {
 
+    //this is to reset the game after the first win or lost.
     if(overlay.classList.contains('win') || overlay.classList.contains('lose')){
         game.resetGame();
     }
@@ -34,15 +35,15 @@ qwerty.addEventListener('click', (e) => {
 });
 
 
+    
 //User uses the keyboard to enter value
 window.addEventListener('keydown', (e) => {
-    if(game != null){
+    //condition prevents the event from listening.
+    if(overlay.style.display == 'none'){
         const pickLetter  = e;
         game.handleInteraction(pickLetter);
-    }
-    
-             
-
+    }                       
 });
+
 
 
